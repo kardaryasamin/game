@@ -11,11 +11,13 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public abstract class Blob extends DynamicBody {
+public abstract class Soliders extends DynamicBody {
 
-    private static final Shape BlobShape = new BoxShape(3f,3f);
+    private static final Shape SShape = new BoxShape(1f,1f);
 
-    public Blob(World world) {
+
+    public Soliders(World world) {
         super(world);
+
     }
 }
