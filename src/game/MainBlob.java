@@ -21,7 +21,7 @@ public class MainBlob extends Walker {
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
 
 
-
+//
     public MainBlob(World world) {
         super(world);
          addImage(MainBlobImg);
