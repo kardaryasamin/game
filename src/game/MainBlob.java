@@ -23,10 +23,14 @@ public class MainBlob extends Walker {
 
 //
     public MainBlob(World world) {
-        super(world);
+        super(world,BlobShape);
          addImage(MainBlobImg);
     }
-
+    public  void shoot( int x, int y)
+    {
+        Shape shape = new CircleShape(1);
+        DynamicBody bullet = new DynamicBody(this.getWorld(),shape);
+    }
 
 
 

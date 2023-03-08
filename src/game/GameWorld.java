@@ -65,21 +65,14 @@ public class GameWorld extends World {
 
 
         //mainBlobs
-       MainBlob myBlob = new MainBlob(this);
-        myBlob.setPosition(new Vec2 (8,-7));
 
         EnemyBlob MainEnemy = new EnemyBlob(this);
+
         MainEnemy.setPosition(new Vec2 (-8,-7));
         MySoliders solider1 = new MySoliders(this);
         solider1.setPosition(new Vec2 (25,-2f));
         EnemySoliders Esolider1 = new EnemySoliders(this);
         Esolider1.setPosition(new Vec2 (-25,-2f));
 
-       // MouseHandler mouseHandler = new MouseHandler();
-      //  MainEnemy.addMouseListener(mouseHandler);
-
-        BlobController controller = new BlobController();
-
-    //new accessor for the student field
     };}
 

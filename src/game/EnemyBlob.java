@@ -15,7 +15,6 @@ public class EnemyBlob extends Blob {
 
     private static final BodyImage EBlobimg = new BodyImage("data/Blob.gif", 3f);
 
-
     public EnemyBlob(World world) {
         super(world);
         addImage(EBlobimg);
