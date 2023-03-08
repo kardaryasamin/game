@@ -3,9 +3,7 @@ package game;
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
-
 import javax.swing.JFrame;
-
 import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
@@ -63,6 +61,7 @@ public class GameWorld extends World {
         solider1.setPosition(new Vec2 (25,-2f));
         EnemySoliders Esolider1 = new EnemySoliders(this);
         Esolider1.setPosition(new Vec2 (-25,-2f));
+
 
     };}
 

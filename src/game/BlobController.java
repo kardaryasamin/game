@@ -30,10 +30,10 @@ public class BlobController implements KeyListener {
                 int code = e.getKeyCode();
                 // other key commands omitted
                 if (code == KeyEvent.VK_RIGHT) {
-                        controlBlob.startWalking(1);
+                        controlBlob.startWalking(5);
 
                 } else if (code == KeyEvent.VK_LEFT) {
-                        controlBlob.startWalking(-1);
+                        controlBlob.startWalking(-5);
                 } else if (code == KeyEvent.VK_SPACE) {
 
                         Vec2 characterPosition = controlBlob.getPosition();

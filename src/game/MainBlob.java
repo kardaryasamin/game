@@ -17,19 +17,9 @@ import java.io.IOException;
 import javax.sound.sampled.*;
 
 public class MainBlob extends Walker {
-    private static final Shape BlobShape = new BoxShape(3f,3f);
+    private static final Shape BlobShape = new BoxShape(1.5f,1.5f);
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
-
-    //private int x ,y;
-
-   /* public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }*/
-
+    int health=3;
     public MainBlob(World world) {
         super(world,BlobShape);
          addImage(MainBlobImg);
@@ -41,6 +31,11 @@ public class MainBlob extends Walker {
         bullet.setPosition(new Vec2 (x,y));
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
-
+    public int getHealth() {
+        return health;
+    }
 }

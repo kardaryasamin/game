@@ -3,9 +3,7 @@ package game;
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
-
 import javax.swing.JFrame;
-
 import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
@@ -33,11 +31,13 @@ public class Game {
         MainBlob myBlob = new MainBlob(world);
         myBlob.setPosition(new Vec2 (-8,-7));
         BlobController controller = new BlobController(myBlob);
+        view.addKeyListener(controller);
+
+        BlobCollision touchEnemy = new BlobCollision( myBlob);
+        myBlob.addCollisionListener(touchEnemy);
 
         view.requestFocus();
-        view.addKeyListener(controller);
         world.start();
-        System.out.println( myBlob);
 
     }
 
