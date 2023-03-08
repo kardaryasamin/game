@@ -11,9 +11,13 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class MainBlob extends Blob {
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.IOException;
+import javax.sound.sampled.*;
 
-    //   private static final Shape EBlobShape = new BoxShape(3f,3f);
+public class MainBlob extends Walker {
+    private static final Shape BlobShape = new BoxShape(3f,3f);
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
 
 
@@ -22,4 +26,8 @@ public class MainBlob extends Blob {
         super(world);
          addImage(MainBlobImg);
     }
+
+
+
+
 }

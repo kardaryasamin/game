@@ -17,7 +17,7 @@ public abstract class Soliders extends DynamicBody {
 
 
     public Soliders(World world) {
-        super(world);
+        super(world,SShape);
 
     }
 }

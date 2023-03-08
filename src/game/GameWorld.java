@@ -10,8 +10,17 @@ import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.IOException;
+import javax.sound.sampled.*;
+
 
 public class GameWorld extends World {
+    public Object getBlob;
+
     public GameWorld() {
         super();
 
@@ -25,14 +34,7 @@ public class GameWorld extends World {
         Student student = new Student(this);
         student.setPosition(new Vec2(7, -9));
         //deleted
-        //mainBlobs
-    /*    Blob myBlob = new Blob(this);
-        myBlob.setPosition(new Vec2 (8,-7));
-        EnemyBlob MainEnemy = new EnemyBlob(this);
-        MainEnemy.setPosition(new Vec2 (-8,-7));
-        soldier mysoldiers = new soldier(this);
-        mysoldiers.setPosition(new Vec2 (27,-2f));
-*/
+
 
         Shape platformShape = new BoxShape(3.5f, 0.5f);
         StaticBody platform1 = new StaticBody(this, platformShape);
@@ -60,5 +62,24 @@ public class GameWorld extends World {
         Shape castleFormPlayer= new BoxShape(2,16f);
         StaticBody castlePlayer = new StaticBody(this, castleFormPlayer);
         castlePlayer.setPosition(new Vec2(-28,5f));
-    }
-}
+
+
+        //mainBlobs
+       MainBlob myBlob = new MainBlob(this);
+        myBlob.setPosition(new Vec2 (8,-7));
+
+        EnemyBlob MainEnemy = new EnemyBlob(this);
+        MainEnemy.setPosition(new Vec2 (-8,-7));
+        MySoliders solider1 = new MySoliders(this);
+        solider1.setPosition(new Vec2 (25,-2f));
+        EnemySoliders Esolider1 = new EnemySoliders(this);
+        Esolider1.setPosition(new Vec2 (-25,-2f));
+
+       // MouseHandler mouseHandler = new MouseHandler();
+      //  MainEnemy.addMouseListener(mouseHandler);
+
+        BlobController controller = new BlobController();
+
+    //new accessor for the student field
+    };}
+

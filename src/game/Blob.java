@@ -16,6 +16,7 @@ public abstract class Blob extends DynamicBody {
     private static final Shape BlobShape = new BoxShape(3f,3f);
 
     public Blob(World world) {
-        super(world);
+        super(world,BlobShape);
     }
+
 }

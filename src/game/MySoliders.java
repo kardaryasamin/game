@@ -13,13 +13,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MySoliders extends Soliders {
 
-    //   private static final Shape EBlobShape = new BoxShape(3f,3f);
-  //  private static final BodyImage SImg = new BodyImage("data/Blob.gif", 3f);
+   private static final BodyImage SImg = new BodyImage("data/Blob.gif", 1f);
 
 
 
     public MySoliders(World world) {
         super(world);
-      //  addImage(SImg);
+      addImage(SImg);
     }
 }

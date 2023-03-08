@@ -50,7 +50,10 @@ public class Game {
 
         //optional: uncomment this to make a debugging view
        //  JFrame debugView = new DebugViewer(world, 500, 500);
+        BlobController controller = new BlobController(world.getBlob);
 
+        view.requestFocus();
+        view.addKeyListener(controller);
         // start our game world simulation!
         world.start();
     }
@@ -59,5 +62,6 @@ public class Game {
     public static void main(String[] args) {
 
         new Game();
+
     }
 }
