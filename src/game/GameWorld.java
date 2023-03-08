@@ -29,13 +29,6 @@ public class GameWorld extends World {
         StaticBody ground = new StaticBody(this, shape);
         ground.setPosition(new Vec2(0f, -11.5f));
 
-        // make the character
-       //to be deleted
-        Student student = new Student(this);
-        student.setPosition(new Vec2(7, -9));
-        //deleted
-
-
         Shape platformShape = new BoxShape(3.5f, 0.5f);
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-25, 5f));
@@ -63,12 +56,9 @@ public class GameWorld extends World {
         StaticBody castlePlayer = new StaticBody(this, castleFormPlayer);
         castlePlayer.setPosition(new Vec2(-28,5f));
 
-
         //mainBlobs
-
         EnemyBlob MainEnemy = new EnemyBlob(this);
-
-        MainEnemy.setPosition(new Vec2 (-8,-7));
+        MainEnemy.setPosition(new Vec2 (8,-7));
         MySoliders solider1 = new MySoliders(this);
         solider1.setPosition(new Vec2 (25,-2f));
         EnemySoliders Esolider1 = new EnemySoliders(this);

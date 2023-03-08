@@ -20,16 +20,25 @@ public class MainBlob extends Walker {
     private static final Shape BlobShape = new BoxShape(3f,3f);
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
 
+    //private int x ,y;
 
-//
+   /* public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }*/
+
     public MainBlob(World world) {
         super(world,BlobShape);
          addImage(MainBlobImg);
     }
     public  void shoot( int x, int y)
     {
-        Shape shape = new CircleShape(1);
+        Shape shape = new CircleShape(0.2f);
         DynamicBody bullet = new DynamicBody(this.getWorld(),shape);
+        bullet.setPosition(new Vec2 (x,y));
     }
 
 

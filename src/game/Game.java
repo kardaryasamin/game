@@ -31,16 +31,18 @@ public class Game {
         frame.setVisible(true);
 
         MainBlob myBlob = new MainBlob(world);
-        myBlob.setPosition(new Vec2 (8,-7));
+        myBlob.setPosition(new Vec2 (-8,-7));
         BlobController controller = new BlobController(myBlob);
+
         view.requestFocus();
         view.addKeyListener(controller);
         world.start();
+        System.out.println( myBlob);
+
     }
 
     /** Run the game. */
     public static void main(String[] args) {
-
         new Game();
 
     }
