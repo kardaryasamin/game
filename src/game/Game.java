@@ -33,8 +33,8 @@ public class Game {
         BlobController controller = new BlobController(myBlob);
         view.addKeyListener(controller);
 
-        BlobCollision touchEnemy = new BlobCollision( myBlob);
-        myBlob.addCollisionListener(touchEnemy);
+        //BlobCollision touchEnemy = new BlobCollision( myBlob);
+       // myBlob.addCollisionListener(touchEnemy);
 
         view.requestFocus();
         world.start();

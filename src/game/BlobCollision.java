@@ -4,25 +4,27 @@ import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 
 public class BlobCollision implements CollisionListener {
-    private MainBlob myBlob;
+    private EnemySoliders enemy;
 
-    public BlobCollision(MainBlob myBlob) {
-        this.myBlob = myBlob;
+    public BlobCollision(EnemySoliders enemy) {
+        this.enemy = enemy;
     }
 
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getOtherBody() instanceof EnemyBlob)
+        if (e.getOtherBody() instanceof EnemySoliders)
         {
             System.out.println("hey");
-            if (myBlob.getHealth() == 1)
+            if (enemy.getHealth() == 1)
             {
                 e.getOtherBody().destroy();
             }
             else
             {
-                myBlob.setHealth(myBlob.getHealth() - 1);
+                enemy.setHealth(enemy.getHealth() - 1);
             }
         }
     }
 }
+
+

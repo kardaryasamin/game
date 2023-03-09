@@ -19,4 +19,5 @@ public class EnemySoliders extends Soliders {
         super(world);
         addImage(ESImg);
     }
+
 }

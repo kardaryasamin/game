@@ -15,6 +15,15 @@ public abstract class Soliders extends DynamicBody {
 
     private static final Shape SShape = new BoxShape(1f,1f);
 
+    int health=1;
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     public Soliders(World world) {
         super(world,SShape);

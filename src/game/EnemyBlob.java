@@ -10,7 +10,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class EnemyBlob extends Blob {
-    int health=5;
+    int health=1;
 
     private static final BodyImage EBlobimg = new BodyImage("data/Blob.gif", 3f);
 
