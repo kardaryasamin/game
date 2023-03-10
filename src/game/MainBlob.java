@@ -24,6 +24,7 @@ public class MainBlob extends Walker {
     public MainBlob(World world) {
         super(world,BlobShape);
          addImage(MainBlobImg);
+      //  this.setIsSensor(true);
     }
     public  void shoot( int x, int y)
     {

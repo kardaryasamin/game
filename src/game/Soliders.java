@@ -1,17 +1,15 @@
 package game;
-
 import city.cs.engine.*;
 import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
-
 import javax.swing.JFrame;
-
 import java.awt.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public abstract class Soliders extends DynamicBody {
+
+public abstract class Soliders extends Walker  {
 
     private static final Shape SShape = new BoxShape(1f,1f);
 
@@ -26,7 +24,8 @@ public abstract class Soliders extends DynamicBody {
     }
 
     public Soliders(World world) {
-        super(world,SShape);
-
+        super(world, SShape);
     }
+
+
 }

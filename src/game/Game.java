@@ -16,6 +16,7 @@ public class Game {
 
         Shape shape = new BoxShape(550, 1f);
         StaticBody ground = new StaticBody(world, shape);
+
         ground.setPosition(new Vec2(0f, -11.5f));
 
         GameView view = new GameView(world, 1200, 500);
@@ -29,7 +30,7 @@ public class Game {
         frame.setVisible(true);
 
         MainBlob myBlob = new MainBlob(world);
-        myBlob.setPosition(new Vec2 (-8,-7));
+        myBlob.setPosition(new Vec2 (-23,-7));
         BlobController controller = new BlobController(myBlob);
         view.addKeyListener(controller);
 
@@ -39,6 +40,7 @@ public class Game {
         view.requestFocus();
         world.start();
 
+        // view.setBackground(new BodyImage("data/background.png", 20f));
     }
 
     /** Run the game. */

@@ -46,24 +46,25 @@ public class GameWorld extends World {
         platform4.setPosition(new Vec2(-25, -3f));
         platform4.setAngle(-60);
 
-        Shape castleFormEnemy= new BoxShape(2,16f);
+        Shape castleFormEnemy = new BoxShape(2, 16f);
         StaticBody castleEnemy = new StaticBody(this, castleFormEnemy);
-        castleEnemy.setPosition(new Vec2(28,5f));
+        castleEnemy.setPosition(new Vec2(28, 5f));
 
-        Shape castleFormPlayer= new BoxShape(2,16f);
+        Shape castleFormPlayer = new BoxShape(2, 16f);
         StaticBody castlePlayer = new StaticBody(this, castleFormPlayer);
-        castlePlayer.setPosition(new Vec2(-28,5f));
+        castlePlayer.setPosition(new Vec2(-28, 5f));
 
         //mainBlobs
         EnemyBlob MainEnemy = new EnemyBlob(this);
-        MainEnemy.setPosition(new Vec2 (8,-7));
+        MainEnemy.setPosition(new Vec2(23, -7));
         MySoliders solider1 = new MySoliders(this);
-        solider1.setPosition(new Vec2 (-25,-2f));
+        solider1.setPosition(new Vec2(-25, -2f));
         EnemySoliders Esolider1 = new EnemySoliders(this);
-        Esolider1.setPosition(new Vec2 (25,-2f));
-
-     //   BlobCollision touchEnemy = new BlobCollision( Esolider1);
-       //  Esolider1.addCollisionListener(touchEnemy);
-
-    };}
+        Esolider1.setPosition(new Vec2(25, -2f));
+//
+Esolider1.startWalking(-2);
+solider1.startWalking(2);
+        BlobCollision touchEnemy = new BlobCollision(solider1);
+        solider1.addCollisionListener(touchEnemy);
+    }}
 

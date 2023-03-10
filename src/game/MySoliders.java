@@ -12,10 +12,18 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MySoliders extends Soliders {
-
+    public int health=1;
    private static final BodyImage SImg = new BodyImage("data/Blob.gif", 1f);
 
+    @Override
+    public int getHealth() {
+        return health;
+    }
 
+    @Override
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     public MySoliders(World world) {
         super(world);

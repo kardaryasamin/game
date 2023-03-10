@@ -12,7 +12,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class EnemyBlob extends Blob {
     int health=1;
 
-    private static final BodyImage EBlobimg = new BodyImage("data/Blob.gif", 3f);
+    private static final BodyImage EBlobimg = new BodyImage("data/Eblob.gif", 3f);
 
     public EnemyBlob(World world) {
         super(world);
