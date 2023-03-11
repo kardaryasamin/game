@@ -5,9 +5,9 @@ import city.cs.engine.CollisionListener;
 
 public class BlobCollision implements CollisionListener {
     private MySoliders enemy;
-
     public BlobCollision(MySoliders enemy) {
         this.enemy = enemy;
+
     }
 
     @Override

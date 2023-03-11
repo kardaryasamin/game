@@ -57,6 +57,7 @@ public class GameWorld extends World {
         //mainBlobs
         EnemyBlob MainEnemy = new EnemyBlob(this);
         MainEnemy.setPosition(new Vec2(23, -7));
+
         MySoliders solider1 = new MySoliders(this);
         solider1.setPosition(new Vec2(-25, -2f));
         EnemySoliders Esolider1 = new EnemySoliders(this);
@@ -66,5 +67,6 @@ Esolider1.startWalking(-2);
 solider1.startWalking(2);
         BlobCollision touchEnemy = new BlobCollision(solider1);
         solider1.addCollisionListener(touchEnemy);
+
     }}
 

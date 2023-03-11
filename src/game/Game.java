@@ -32,6 +32,9 @@ public class Game {
         MainBlob myBlob = new MainBlob(world);
         myBlob.setPosition(new Vec2 (-23,-7));
         BlobController controller = new BlobController(myBlob);
+
+        myblobCollision touched = new myblobCollision(myBlob);
+        myBlob.addCollisionListener(touched);
         view.addKeyListener(controller);
 
         //BlobCollision touchEnemy = new BlobCollision( myBlob);

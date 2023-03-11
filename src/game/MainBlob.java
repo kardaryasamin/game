@@ -16,6 +16,10 @@ import java.awt.event.*;
 import java.io.IOException;
 import javax.sound.sampled.*;
 
+import city.cs.engine.CollisionEvent;
+import city.cs.engine.CollisionListener;
+
+
 public class MainBlob extends Walker {
     private static final Shape BlobShape = new BoxShape(1.5f,1.5f);
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
@@ -24,9 +28,10 @@ public class MainBlob extends Walker {
     public MainBlob(World world) {
         super(world,BlobShape);
          addImage(MainBlobImg);
-      //  this.setIsSensor(true);
     }
-    public  void shoot( int x, int y)
+
+
+    public  void shoot(int x, int y)
     {
         Shape shape = new CircleShape(0.2f);
         DynamicBody bullet = new DynamicBody(this.getWorld(),shape);
@@ -69,4 +74,5 @@ public class MainBlob extends Walker {
         }
     });
          }
+
 }
