@@ -15,7 +15,7 @@ import java.io.IOException;
 import javax.sound.sampled.*;
 public class BlobController implements KeyListener {
         MainBlob controlBlob;
-          int x, y;
+        int x, y;
 
         public BlobController(MainBlob controlBlob) {
                 this.controlBlob = controlBlob;

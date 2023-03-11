@@ -14,12 +14,14 @@ public class BlobCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof EnemySoliders)
         {
-                e.getOtherBody().destroy();
-                e.getReportingBody().destroy();
+            e.getOtherBody().destroy();
+            e.getReportingBody().destroy();
 
 
         }
     }
 }
+
+
 
 

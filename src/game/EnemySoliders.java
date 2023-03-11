@@ -21,3 +21,4 @@ public class EnemySoliders extends Soliders {
     }
 
 }
+

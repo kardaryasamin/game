@@ -25,9 +25,18 @@ public class MainBlob extends Walker {
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
 
     int health=3;
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public MainBlob(World world) {
         super(world,BlobShape);
-         addImage(MainBlobImg);
+        addImage(MainBlobImg);
     }
 
 
@@ -39,40 +48,43 @@ public class MainBlob extends Walker {
         bullet.isBullet();
         bullet.setLinearVelocity(new Vec2(-getPosition().x+50, y - getPosition().y-10).mul(1)); // set bullet velocity towards mouse click
 
-            bullet.addCollisionListener(new CollisionListener() {
-                @Override
-                public void collide(CollisionEvent e) {
-                    if (e.getOtherBody() instanceof EnemyBlob) {
-                        // Reduce enemy's health and destroy the bullet
-                        EnemyBlob enemy = (EnemyBlob) e.getOtherBody();
+        bullet.addCollisionListener(new CollisionListener() {
+            @Override
+            public void collide(CollisionEvent e) {
+                if (e.getOtherBody() instanceof EnemyBlob) {
+                    // Reduce enemy's health and destroy the bullet
+                    EnemyBlob enemy = (EnemyBlob) e.getOtherBody();
 
-                        if (enemy.getHealth() == 1)
-                        {
-                            e.getOtherBody().destroy();
-                        }
-                        else
-                        {
-                            enemy.setHealth(enemy.getHealth() - 1);
-                        }
+                    if (enemy.getHealth() == 1)
+                    {
+                        e.getOtherBody().destroy();
+                        bullet.destroy();                    }
+                    else
+                    {
+                        enemy.setHealth(enemy.getHealth() - 1);
                         bullet.destroy();
-                    }
-                    else if (e.getOtherBody() instanceof EnemySoliders) {
-                        // Reduce enemy's health and destroy the bullet
-                        EnemySoliders enemy = (EnemySoliders) e.getOtherBody();
 
-                        if (enemy.getHealth() == 1)
-                        {
-                            e.getOtherBody().destroy();
-                        }
-                        else
-                        {
-                            enemy.setHealth(enemy.getHealth() - 1);
-                        }
+
+                    }
+                }
+                else if (e.getOtherBody() instanceof EnemySoliders) {
+                    // Reduce enemy's health and destroy the bullet
+                    EnemySoliders enemy = (EnemySoliders) e.getOtherBody();
+
+                    if (enemy.getHealth() == 1)
+                    {
+                        e.getOtherBody().destroy();
+                    }
+                    else
+                    {
+                        enemy.setHealth(enemy.getHealth() - 1);
+                    }
 
                 }
 
-        }
-    });
-         }
+            }
+        });
+    }
 
 }
+
