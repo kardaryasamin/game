@@ -21,11 +21,15 @@ import city.cs.engine.CollisionListener;
 
 
 public class MainBlob extends Walker {
+    //shapes and stuff
     private static final Shape BlobShape = new BoxShape(1.5f,1.5f);
     private static final BodyImage MainBlobImg = new BodyImage("data/Blob.gif", 3f);
-
     int health=3;
 
+    //this var counts the dead enemy soldiers
+    public int countDead= 0;
+
+    //getters and setters
     public int getHealth() {
         return health;
     }
@@ -34,14 +38,24 @@ public class MainBlob extends Walker {
         this.health = health;
     }
 
+    public int getCountDead() {
+        return countDead;
+    }
+
+    public void setCountDead(int countDead) {
+        this.countDead = countDead;
+    }
+
     public MainBlob(World world) {
         super(world,BlobShape);
         addImage(MainBlobImg);
-    }
 
+    }
+    //the use of shoot is in the controller class
 
     public  void shoot(int x, int y)
     {
+        //create the bullet
         Shape shape = new CircleShape(0.2f);
         DynamicBody bullet = new DynamicBody(this.getWorld(),shape);
         bullet.setPosition(new Vec2 (x,y-0.9f));
@@ -51,14 +65,23 @@ public class MainBlob extends Walker {
         bullet.addCollisionListener(new CollisionListener() {
             @Override
             public void collide(CollisionEvent e) {
+                System.out.println(countDead);
                 if (e.getOtherBody() instanceof EnemyBlob) {
                     // Reduce enemy's health and destroy the bullet
                     EnemyBlob enemy = (EnemyBlob) e.getOtherBody();
 
+                    //kill the enemyblob if his life is 1 and if you have killed 3 soldiers stop the game
                     if (enemy.getHealth() == 1)
                     {
                         e.getOtherBody().destroy();
-                        bullet.destroy();                    }
+                        enemy.setAlive(false);
+                        bullet.destroy();
+                        if(getCountDead()>3)
+                        {
+                            //stop the game
+                            getWorld().stop();
+                        }
+                    }
                     else
                     {
                         enemy.setHealth(enemy.getHealth() - 1);
@@ -75,10 +98,7 @@ public class MainBlob extends Walker {
                     {
                         e.getOtherBody().destroy();
                     }
-                    else
-                    {
-                        enemy.setHealth(enemy.getHealth() - 1);
-                    }
+                    countDead++;
 
                 }
 
@@ -87,4 +107,6 @@ public class MainBlob extends Walker {
     }
 
 }
+
+
 

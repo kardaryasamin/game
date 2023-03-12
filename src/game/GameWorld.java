@@ -22,51 +22,60 @@ public class GameWorld extends World {
     public GameWorld() {
         super();
 
+
         // make the ground
         Shape shape = new BoxShape(11, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
         ground.setPosition(new Vec2(0f, -11.5f));
-
+        //platforms
+        /*
         Shape platformShape = new BoxShape(3.5f, 0.5f);
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-25, 5f));
 
         Shape platformShape2 = new BoxShape(3.5f, 0.5f);
         StaticBody platform2 = new StaticBody(this, platformShape2);
-        platform2.setPosition(new Vec2(25, 5f));
+        platform2.setPosition(new Vec2(20, 5f));*/
 
-
+        //castles have a platform with an angle because the soldiers would slide down
         Shape platformShape3 = new BoxShape(3.5f, 0.5f);
         StaticBody platform3 = new StaticBody(this, platformShape3);
-        platform3.setPosition(new Vec2(25, -3f));
-        platform3.setAngle(60);
+        platform3.setPosition(new Vec2(18, -4f));
+        platform3.setAngle(70);
 
         Shape platformShape4 = new BoxShape(3.5f, 0.5f);
         StaticBody platform4 = new StaticBody(this, platformShape4);
-        platform4.setPosition(new Vec2(-25, -3f));
-        platform4.setAngle(-60);
+        platform4.setPosition(new Vec2(-18, -4f));
+        platform4.setAngle(-70);
 
+        //castles
         Shape castleFormEnemy = new BoxShape(2, 16f);
         StaticBody castleEnemy = new StaticBody(this, castleFormEnemy);
-        castleEnemy.setPosition(new Vec2(28, 5f));
+        castleEnemy.setPosition(new Vec2(26, 0));
+        castleEnemy.addImage(new BodyImage("data/castle1.png",32));
 
         Shape castleFormPlayer = new BoxShape(2, 16f);
         StaticBody castlePlayer = new StaticBody(this, castleFormPlayer);
-        castlePlayer.setPosition(new Vec2(-28, 5f));
+        castlePlayer.setPosition(new Vec2(-26, 0));
+        castlePlayer.addImage(new BodyImage("data/castle2.png",32));
+
 
         //mainBlobs
         EnemyBlob MainEnemy = new EnemyBlob(this);
-        MainEnemy.setPosition(new Vec2(23, -7));
-
+        MainEnemy.setPosition(new Vec2(20   ,-7));
+         //my soldier (first one only)
         MySoliders solider1 = new MySoliders(this);
-        solider1.setPosition(new Vec2(-25, -2f));
+        solider1.setPosition(new Vec2(-17, -3.5f));
+        //enemy soldiers( first one only
         EnemySoliders Esolider1 = new EnemySoliders(this);
-        Esolider1.setPosition(new Vec2(25, -2f));
-//
+        Esolider1.setPosition(new Vec2(17, -3.5f));
+        //walking and collision
         Esolider1.startWalking(-2);
         solider1.startWalking(2);
         BlobCollision touchEnemy = new BlobCollision(solider1);
         solider1.addCollisionListener(touchEnemy);
 
     }}
+
+
 

@@ -12,14 +12,27 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class EnemyBlob extends Blob implements ActionListener{
-    int health = 1;
-    boolean alive = true;
 
+
+    //sets the health for the character
+    int health = 3;
+    boolean alive = true;
     private static final BodyImage EBlobimg = new BodyImage("data/Eblob.gif", 3f);
+
+    //to stop the shooting after it died:
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
 
     public EnemyBlob(GameWorld world) {
         super(world);
         addImage(EBlobimg);
+
+
 
         // Add a timer to start walking after 3 seconds
         Timer timer = new Timer(3000, new ActionListener() {
@@ -62,54 +75,71 @@ public class EnemyBlob extends Blob implements ActionListener{
 
 
     public void shoot (int x, int y) {
+        //to stop shooting after dead
+        if(this.alive) {
 
-        Shape shape = new CircleShape(0.2f);
-        DynamicBody bullet = new DynamicBody(getWorld(), shape);
-        bullet.setPosition(new Vec2(x, y -0.5f));
-        bullet.isBullet();
-        bullet.setLinearVelocity(new Vec2(-getPosition().x + 50, y - getPosition().y +20).mul(-1f));
-        bullet.addCollisionListener(new CollisionListener() {
-            @Override
-            public void collide(CollisionEvent e) {
 
-                MainBlob myblob = null;
-                if (e.getOtherBody() instanceof MainBlob) {
-                    myblob = (MainBlob) e.getOtherBody();
+            //create the bullet and set it
+            Shape shape = new CircleShape(0.2f);
+            DynamicBody bullet = new DynamicBody(getWorld(), shape);
+            bullet.setPosition(new Vec2(x, y - 0.5f));
+            bullet.isBullet();
+            bullet.setLinearVelocity(new Vec2(-getPosition().x + 50, y - getPosition().y + 20).mul(-1f));
+            bullet.setFillColor(Color.ORANGE);
 
-                    if (myblob.getHealth() == 1) {
-                        myblob.destroy();
+            //collision for the main char life
+            bullet.addCollisionListener(new CollisionListener() {
+                @Override
+                public void collide(CollisionEvent e) {
 
-                    } else {
-                        myblob.setHealth(myblob.getHealth() - 1);
+                    MainBlob myblob = null;
+
+
+                    if (e.getOtherBody() instanceof MainBlob) {
+                        myblob = (MainBlob) e.getOtherBody();
+
+                        if (myblob.getHealth() == 1) {
+
+                            //to stop the game after the main char dies
+                            getWorld().stop();
+                            myblob.destroy();
+
+
+                        } else {
+                            myblob.setHealth(myblob.getHealth() - 1);
+                            System.out.println("no");
+                            bullet.destroy();
+
+                        }
+
+
+                        bullet.destroy();
                     }
-                    bullet.destroy();
-                }
-                MySoliders blobs;
-                if (e.getOtherBody() instanceof MySoliders) {
-                    blobs = (MySoliders) e.getOtherBody();
 
 
-                    if (blobs.getHealth() == 1) {
+                    MySoliders blobs;
+                    if (e.getOtherBody() instanceof MySoliders) {
+                        blobs = (MySoliders) e.getOtherBody();
+
+
                         blobs.destroy();
 
-                    } else {
-                        blobs.setHealth(blobs.getHealth() - 1);
+                        bullet.destroy();
                     }
-                    bullet.destroy();
+                    //    bullet.destroy();
+
                 }
-
-
-            }
-        });
-
+            });
+        }
     }
-
+    // i dont know what this is really buyt im too scared to delete it
     @Override
     public void destroy(){
         super.destroy();
         alive=false;
     }
     public void actionPerformed(ActionEvent e) {
+
         // Add your code to handle the action event here
     }
 }

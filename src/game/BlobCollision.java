@@ -1,12 +1,15 @@
 package game;
 
+import city.cs.engine.BodyImage;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import city.cs.engine.StaticBody;
 
 public class BlobCollision implements CollisionListener {
-    private MySoliders enemy;
-    public BlobCollision(MySoliders enemy) {
-        this.enemy = enemy;
+    private MySoliders soldiers;
+
+    public BlobCollision(MySoliders soldiers) {
+        this.soldiers = soldiers;
 
     }
 
