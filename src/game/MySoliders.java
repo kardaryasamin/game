@@ -13,7 +13,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MySoliders extends Soliders {
     public int health=1;
-   private static final BodyImage SImg = new BodyImage("data/Blob.gif", 1f);
+    private static final BodyImage SImg = new BodyImage("data/Blob.gif", 1f);
 
     @Override
     public int getHealth() {
@@ -27,6 +27,6 @@ public class MySoliders extends Soliders {
 
     public MySoliders(World world) {
         super(world);
-      addImage(SImg);
+        addImage(SImg);
     }
 }

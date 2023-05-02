@@ -29,14 +29,12 @@ public class Game {
         frame.pack();
         frame.setVisible(true);
 
+
+
         MainBlob myBlob = new MainBlob(world);
-        myBlob.setPosition(new Vec2 (-23,-7));
+        myBlob.setPosition(new Vec2 (-17,-7));
         BlobController controller = new BlobController(myBlob);
         view.addKeyListener(controller);
-
-        //BlobCollision touchEnemy = new BlobCollision( myBlob);
-       // myBlob.addCollisionListener(touchEnemy);
-
         view.requestFocus();
         world.start();
 
@@ -49,3 +47,5 @@ public class Game {
 
     }
 }
+
+

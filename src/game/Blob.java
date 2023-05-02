@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public abstract class Blob extends DynamicBody {
+public abstract class Blob extends Walker {
     private static final Shape BlobShape = new BoxShape(1.5f,1.5f);
 
     public Blob(World world) {
