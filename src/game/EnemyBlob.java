@@ -12,6 +12,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class EnemyBlob extends Blob implements ActionListener{
+<<<<<<< HEAD
     //these above are commented because i dont want to delete them but worked hard for them
    // private final BodyImage heartHalf = new BodyImage("data/halfHeart.png", 2f);
     //private final BodyImage heartEmpty = new BodyImage("data/emplyHeart.png", 2f);
@@ -20,11 +21,20 @@ public class EnemyBlob extends Blob implements ActionListener{
 
 
 //sets the health for the character
+=======
+
+
+    //sets the health for the character
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
     int health = 3;
     boolean alive = true;
     private static final BodyImage EBlobimg = new BodyImage("data/Eblob.gif", 3f);
 
+<<<<<<< HEAD
 //to stop the shooting after it died:
+=======
+    //to stop the shooting after it died:
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
     public boolean isAlive() {
         return alive;
     }
@@ -82,6 +92,7 @@ public class EnemyBlob extends Blob implements ActionListener{
     public void shoot (int x, int y) {
         //to stop shooting after dead
         if(this.alive) {
+<<<<<<< HEAD
             //more of the heart code
          /*   DynamicBody heart = new DynamicBody(getWorld());
             heart.setPosition(new Vec2(0, 0));
@@ -92,6 +103,9 @@ public class EnemyBlob extends Blob implements ActionListener{
             DynamicBody heart2= new DynamicBody(getWorld());
             heart2.setPosition(new Vec2(0, 5));
             heart2.addImage(heartFull);*/
+=======
+
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
 
             //create the bullet and set it
             Shape shape = new CircleShape(0.2f);
@@ -113,7 +127,10 @@ public class EnemyBlob extends Blob implements ActionListener{
                         myblob = (MainBlob) e.getOtherBody();
 
                         if (myblob.getHealth() == 1) {
+<<<<<<< HEAD
                             //heart1.setPosition(new Vec2(100, 100));//   heart.removeAllImages();
+=======
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
 
                             //to stop the game after the main char dies
                             getWorld().stop();
@@ -122,9 +139,12 @@ public class EnemyBlob extends Blob implements ActionListener{
 
                         } else {
                             myblob.setHealth(myblob.getHealth() - 1);
+<<<<<<< HEAD
                             //           heart.removeAllImages();
                          //   heart1.addImage(heartHalf);
                          //   heart2.setPosition(new Vec2(500, 50));//   heart.removeAllImages();
+=======
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
                             System.out.println("no");
                             bullet.destroy();
 
@@ -140,7 +160,11 @@ public class EnemyBlob extends Blob implements ActionListener{
                         blobs = (MySoliders) e.getOtherBody();
 
 
+<<<<<<< HEAD
                             blobs.destroy();
+=======
+                        blobs.destroy();
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
 
                         bullet.destroy();
                     }
@@ -161,4 +185,7 @@ public class EnemyBlob extends Blob implements ActionListener{
         // Add your code to handle the action event here
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb

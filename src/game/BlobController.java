@@ -14,8 +14,10 @@ import java.awt.event.*;
 import java.io.IOException;
 import javax.sound.sampled.*;
 public class BlobController implements KeyListener {
+        //this class controlls the main walker
         MainBlob controlBlob;
-          int x, y;
+        int x, y;
+
 
         public BlobController(MainBlob controlBlob) {
                 this.controlBlob = controlBlob;
@@ -27,8 +29,8 @@ public class BlobController implements KeyListener {
 
         @Override
         public void keyPressed(KeyEvent e) {
+                //to walk on right and left, shoot on space and use shift to spawn soldiers
                 int code = e.getKeyCode();
-                // other key commands omitted
                 if (code == KeyEvent.VK_RIGHT) {
                         controlBlob.startWalking(5);
 
@@ -41,6 +43,16 @@ public class BlobController implements KeyListener {
                         int s = (int) characterPosition.x;
                         int n = (int) characterPosition.y;
                         controlBlob.shoot(s, n);
+                }
+                else if (code==KeyEvent.VK_SHIFT)
+                {
+                        MySoliders solider1 = new MySoliders(this.controlBlob.getWorld());
+                        solider1.setPosition(new Vec2(-17, -3.5f));
+
+                        solider1.startWalking(2);
+                        BlobCollision touchEnemy = new BlobCollision(solider1);
+                        solider1.addCollisionListener(touchEnemy);
+
                 }
         }
 

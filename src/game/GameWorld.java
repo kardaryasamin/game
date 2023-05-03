@@ -47,8 +47,12 @@ public class GameWorld extends World {
         StaticBody platform4 = new StaticBody(this, platformShape4);
         platform4.setPosition(new Vec2(-18, -4f));
         platform4.setAngle(-70);
+<<<<<<< HEAD
         //castles
+=======
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
 
+        //castles
         Shape castleFormEnemy = new BoxShape(2, 16f);
         StaticBody castleEnemy = new StaticBody(this, castleFormEnemy);
         castleEnemy.setPosition(new Vec2(26, 0));
@@ -63,6 +67,7 @@ public class GameWorld extends World {
         //mainBlobs
         EnemyBlob MainEnemy = new EnemyBlob(this);
         MainEnemy.setPosition(new Vec2(20   ,-7));
+<<<<<<< HEAD
 
         MySoliders solider1 = new MySoliders(this);
         solider1.setPosition(new Vec2(-17, -3.5f));
@@ -70,6 +75,15 @@ public class GameWorld extends World {
         Esolider1.setPosition(new Vec2(17, -3.5f));
 
 
+=======
+         //my soldier (first one only)
+        MySoliders solider1 = new MySoliders(this);
+        solider1.setPosition(new Vec2(-17, -3.5f));
+        //enemy soldiers( first one only
+        EnemySoliders Esolider1 = new EnemySoliders(this);
+        Esolider1.setPosition(new Vec2(17, -3.5f));
+        //walking and collision
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
         Esolider1.startWalking(-2);
         solider1.startWalking(2);
         BlobCollision touchEnemy = new BlobCollision(solider1);
@@ -78,3 +92,7 @@ public class GameWorld extends World {
     }}
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb

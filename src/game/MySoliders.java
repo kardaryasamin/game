@@ -30,3 +30,7 @@ public class MySoliders extends Soliders {
         addImage(SImg);
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb

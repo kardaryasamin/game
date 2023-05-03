@@ -13,14 +13,18 @@ public class Game {
     public Game() {
 
         GameWorld world = new GameWorld();
-
+//wo6,l6,l555555555555555lllllllllllllllllll55lllllllllllllll5lr,,,,,,,5rld
         Shape shape = new BoxShape(550, 1f);
         StaticBody ground = new StaticBody(world, shape);
 
         ground.setPosition(new Vec2(0f, -11.5f));
+        MainBlob myBlob = new MainBlob(world);
 
-        GameView view = new GameView(world, 1200, 500);
+        myBlob.setPosition(new Vec2 (-17,-7));
+        BlobController controller = new BlobController(myBlob);
+        GameView view = new GameView(world, 1200, 500, myBlob);
         final JFrame frame = new JFrame("City Game");
+
 
         frame.add(view);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,12 +33,18 @@ public class Game {
         frame.pack();
         frame.setVisible(true);
 
+<<<<<<< HEAD
 
 
         MainBlob myBlob = new MainBlob(world);
         myBlob.setPosition(new Vec2 (-17,-7));
         BlobController controller = new BlobController(myBlob);
         view.addKeyListener(controller);
+=======
+        view.addKeyListener(controller);
+
+
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
         view.requestFocus();
         world.start();
 
@@ -49,3 +59,7 @@ public class Game {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> eba8fcdd61dc6acbf5bb489ed5eee971a6bf00fb
